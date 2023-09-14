@@ -1,0 +1,111 @@
+<%- include('../partials/header') %>
+
+
+<% if (card.type === "Monster") { %>
+    <form id="edit-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
+      <label>Name:</label>
+      <input type="text" name="name" value="<%= `${card.name}` %>">
+      <br>
+      <label>Type:</label>
+      <select name="type" value="<%= `${card.type}` %>">
+        <option value="Monster">Monster</option>
+      </select>
+      <br>
+      <label>Level:</label>
+      <input type="text" name="level" value="<%= `${card.level}` %>">
+      <br>
+      <label>Attribute:</label>
+      <select name="attribute" value="<%= `${card.attribute}` %>">
+        <option value="LIGHT">LIGHT</option>
+        <option value="DARK">DARK</option>
+        <option value="FIRE">FIRE</option>
+        <option value="WATER">WATER</option>
+        <option value="WIND">WIND</option>
+        <option value="EARTH">EARTH</option>
+        <option value="DIVINE">DIVINE</option>
+      </select>
+      <br>
+      <label>Monster Type:</label>
+      <select name="monsterType" value="<%= `${card.monsterType}` %>">
+        <option value="Aqua">Aqua</option>
+        <option value="Beast">Beast</option>
+        <option value="Beast-Warrior">Beast-Warrior</option>
+        <option value="Cyberse">Cyberse</option>
+        <option value="Dinosaur">Dinosaur</option>
+        <option value="Divine-Beast">Divine-Beast</option>
+        <option value="Dragon">Dragon</option>
+        <option value="Fairy">Fairy</option>
+        <option value="Fiend">Fiend</option>
+        <option value="Fish">Fish</option>
+        <option value="Insect">Insect</option>
+        <option value="Machine">Machine</option>
+        <option value="Plant">Plant</option>
+        <option value="Psychic">Psychic</option>
+        <option value="Pyro">Pyro</option>
+        <option value="Reptile">Reptile</option>
+        <option value="Rock">Rock</option>
+        <option value="Sea Serpent">Sea Serpent</option>
+        <option value="Spellcaster">Spellcaster</option>
+        <option value="Thunder">Thunder</option>
+        <option value="Warrior">Warrior</option>
+        <option value="Winged Beast">Winged Beast</option>
+        <option value="Wyrm">Wyrm</option>
+        <option value="Zombie">Zombie</option>
+      </select>
+      <br>
+      <label>Attack:</label>
+      <input type="text" name="atk" value="<%= `${card.atk}` %>">
+      <br>
+      <label>Defense:</label>
+      <input type="text" name="def" value="<%= `${card.def}` %>">
+      <br>
+      <label>Effect:</label>
+      <input type="text" name="effect" value="<%= `${card.effect}` %>">
+      <input type="submit" value="Edit Card">
+    </form>
+<% } else if (card.type === "Spell") { %>
+    <form id="edit-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" value="<%= `${card.name}` %>">
+        <br>
+        <label>Type:</label>
+        <select name="type" value="<%= `${card.type}` %>">
+          <option value="Spell">Spell</option>
+        </select>
+        <br>
+        <label>Spell Type:</label>
+        <select name="spellType" value="<%= `${card.spellType}` %>">
+          <option value="Normal">Normal</option>
+          <option value="Continuous">Continuous</option>
+          <option value="Quick-Play">Quick-Play</option>
+          <option value="Field">Field</option>
+          <option value="Equip">Equip</option>
+        </select>
+        <br>
+        <label>Effect:</label>
+        <input type="text" name="effect" value="<%= `${card.effect}` %>">
+        <input type="submit" value="Edit Card">
+      </form>
+<% } else if (card.type === "Trap") { %>
+    <form id="edit-form" action="/cards/<%= `${card._id}` %>?_method=PUT" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" value="<%= `${card.name}` %>">
+        <br>
+        <label>Type:</label>
+        <select name="type" value="<%= `${card.type}` %>">
+          <option value="Trap">Trap</option>
+        </select>
+        <br>
+        <label>Trap Type:</label>
+        <select name="trapType" value="<%= `${card.trapType}` %>">
+          <option value="Normal">Normal</option>
+          <option value="Continuous">Continuous</option>
+          <option value="Counter">Counter</option>
+        </select>
+        <br>
+        <label>Effect:</label>
+        <input type="text" name="effect" value="<%= `${card.effect}` %>">
+        <input type="submit" value="Edit Card">
+    </form>
+<% } %>
+<%- include('../partials/footer') %>

@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('cards/index', { title: 'Yu-Gi-Oh Card Builder' });
+  res.render('index', { title: 'Yu-Gi-Oh Card Builder' });
 });
 
 // Google OAuth login route

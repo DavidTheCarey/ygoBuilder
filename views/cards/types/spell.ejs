@@ -1,0 +1,26 @@
+<%- include('../../partials/header') %>
+
+<form id="new-form" action="/cards" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+  <br>
+  <label>Type:</label>
+  <select name="type">
+    <option value="Spell">Spell</option>
+  </select>
+  <br>
+  <label>Spell Type:</label>
+  <select name="spellType">
+    <option value="Normal">Normal</option>
+    <option value="Continuous">Continuous</option>
+    <option value="Quick-Play">Quick-Play</option>
+    <option value="Field">Field</option>
+    <option value="Equip">Equip</option>
+  </select>
+  <br>
+  <label>Effect:</label>
+  <input type="text" name="effect">
+  <input type="submit" value="Create Card">
+</form>
+
+<%- include('../../partials/footer') %>

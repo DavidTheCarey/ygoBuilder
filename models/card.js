@@ -63,15 +63,22 @@ const cardSchema = new Schema({
   },
   trapType: {
     type: String,
-    enum: ["Normal", "Continuous", "Counter"],
+    enum: ["Normal", "Continuous", "Counter", null],
     default: null
   },
   spellType: {
     type: String,
-    enum: ["Normal", "Continuous", "Quick-Play", "Field", "Equip"],
+    enum: ["Normal", "Continuous", "Quick-Play", "Field", "Equip", null],
     default: null
   },
-  comments: [commentSchema]
+  comments: [commentSchema],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
 }, {
   timestamps: true
 });

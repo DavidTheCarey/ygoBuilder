@@ -1,0 +1,92 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Name: </div>
+  <div><%= card.name %></div>
+  <div>Type: </div>
+  <div><%= card.type %></div>
+  <% if (card.type === "Monster") { %>
+  <div>Level: </div>
+  <div><%= card.level %></div>
+  <div>Attribute: </div>
+  <div><%= card.attribute %></div>
+  <div>Monster Type: </div>
+  <div><%= card.monsterType %></div>
+  <div>Attack: </div>
+  <div><%= card.atk %></div>
+  <div>Defense: </div>
+  <div><%= card.def %></div>
+  <% } else if (card.type === "Spell") { %>
+  <div>Spell Type: </div>
+  <div><%= card.spellType %></div>
+  <% } else if (card.type === "Trap") { %>
+  <div>Trap Type: </div>
+  <div><%= card.trapType %></div>
+  <% } %>
+  <div>Effect: </div>
+  <div><%= card.effect %></div>
+</section>
+
+<br><br>
+<a href="/cards/<%= card.id %>/edit">Edit Card</a>
+<form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Post</button>
+  </form>
+
+
+<br><br><h2>Comments</h2>
+<form id="add-comment-form" method="POST"
+  action="/cards/<%= card._id %>/comments">
+  <label>Comment:</label>
+  <textarea name="content"></textarea>
+  <label>Rating:</label>
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5" selected>5</option>
+  </select>
+  <input type="submit" value="Add Review">
+</form>
+
+<% if (card.comments.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %>
+        <% card.comments.forEach(function(c) { %>
+          <% total += c.rating %>
+          <tr>
+            <td class="comment-user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
+            <td><%= c.createdAt.toLocaleDateString() %></td>
+            <td><%= c.content %></td>
+            <td><%= c.rating %></td>
+            <td>
+              <% if (user?._id.equals(c.user)) { %>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                  <button type="submit">X</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="3"></td>
+          <td><strong><%= (total / card.comments.length).toFixed(1) %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Comments Yet</h5>
+  <% } %>
+
+<%- include('../partials/footer') %>
