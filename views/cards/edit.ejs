@@ -15,42 +15,26 @@
       <input type="text" name="level" value="<%= `${card.level}` %>">
       <br>
       <label>Attribute:</label>
-      <select name="attribute" value="<%= `${card.attribute}` %>">
-        <option value="LIGHT">LIGHT</option>
-        <option value="DARK">DARK</option>
-        <option value="FIRE">FIRE</option>
-        <option value="WATER">WATER</option>
-        <option value="WIND">WIND</option>
-        <option value="EARTH">EARTH</option>
-        <option value="DIVINE">DIVINE</option>
+      <select name="attribute">
+        <% const attributes = ["LIGHT", "DARK", "FIRE", "WATER", "WIND",
+        "EARTH", "DIVINE"];
+            for (i = 0; i < attributes.length; i++){
+                let selected = (card.attribute === attributes[i]) ? "selected" : "";
+                %><option value="<%= attributes[i] %>" <%= selected %>><%= attributes[i] %></option><%
+            } %>
       </select>
       <br>
       <label>Monster Type:</label>
-      <select name="monsterType" value="<%= `${card.monsterType}` %>">
-        <option value="Aqua">Aqua</option>
-        <option value="Beast">Beast</option>
-        <option value="Beast-Warrior">Beast-Warrior</option>
-        <option value="Cyberse">Cyberse</option>
-        <option value="Dinosaur">Dinosaur</option>
-        <option value="Divine-Beast">Divine-Beast</option>
-        <option value="Dragon">Dragon</option>
-        <option value="Fairy">Fairy</option>
-        <option value="Fiend">Fiend</option>
-        <option value="Fish">Fish</option>
-        <option value="Insect">Insect</option>
-        <option value="Machine">Machine</option>
-        <option value="Plant">Plant</option>
-        <option value="Psychic">Psychic</option>
-        <option value="Pyro">Pyro</option>
-        <option value="Reptile">Reptile</option>
-        <option value="Rock">Rock</option>
-        <option value="Sea Serpent">Sea Serpent</option>
-        <option value="Spellcaster">Spellcaster</option>
-        <option value="Thunder">Thunder</option>
-        <option value="Warrior">Warrior</option>
-        <option value="Winged Beast">Winged Beast</option>
-        <option value="Wyrm">Wyrm</option>
-        <option value="Zombie">Zombie</option>
+      <select name="monsterType">
+        <% const monsters = ["Aqua", "Beast", "Beast-Warrior", "Cyberse", 
+        "Dinosaur", "Divine-Beast", "Dragon", "Fairy", "Fiend", "Fish",
+        "Insect", "Machine", "Plant", "Psychic", "Pyro", "Reptile", "Rock",
+        "Sea Serpent", "Spellcaster", "Thunder", "Warrior", "Winged Beast",
+        "Wyrm", "Zombie"];
+            for (i = 0; i < monsters.length; i++){
+                let selected = (card.monsterType === monsters[i]) ? "selected" : "";
+                %><option value="<%= monsters[i] %>" <%= selected %>><%= monsters[i] %></option><%
+            } %>
       </select>
       <br>
       <label>Attack:</label>
@@ -74,12 +58,12 @@
         </select>
         <br>
         <label>Spell Type:</label>
-        <select name="spellType" value="<%= `${card.spellType}` %>">
-          <option value="Normal">Normal</option>
-          <option value="Continuous">Continuous</option>
-          <option value="Quick-Play">Quick-Play</option>
-          <option value="Field">Field</option>
-          <option value="Equip">Equip</option>
+        <select name="spellType">
+            <% const spells = ["Normal", "Continuous", "Quick-Play", "Field", "Equip"];
+            for (i = 0; i < spells.length; i++){
+                let selected = (card.spellType === spells[i]) ? "selected" : "";
+                %><option value="<%= spells[i] %>" <%= selected %>><%= spells[i] %></option><%
+            } %>
         </select>
         <br>
         <label>Effect:</label>
@@ -97,10 +81,12 @@
         </select>
         <br>
         <label>Trap Type:</label>
-        <select name="trapType" value="<%= `${card.trapType}` %>">
-          <option value="Normal">Normal</option>
-          <option value="Continuous">Continuous</option>
-          <option value="Counter">Counter</option>
+        <select name="trapType">
+          <% const traps = ["Normal", "Continuous", "Counter"];
+            for (i = 0; i < traps.length; i++){
+                let selected = (card.trapType === traps[i]) ? "selected" : "";
+                %><option value="<%= traps[i] %>" <%= selected %>><%= traps[i] %></option><%
+            }%>
         </select>
         <br>
         <label>Effect:</label>
