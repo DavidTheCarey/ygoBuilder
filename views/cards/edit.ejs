@@ -2,9 +2,9 @@
 
 
 <% if (card.type === "Monster") { %>
-    <form id="edit-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
+    <form id="new-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
       <label>Name:</label>
-      <input type="text" name="name" value="<%= `${card.name}` %>">
+      <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42">
       <br>
       <label>Type:</label>
       <select name="type" value="<%= `${card.type}` %>">
@@ -24,7 +24,7 @@
             } %>
       </select>
       <br>
-      <label>Monster Type:</label>
+      <label>Mon. Type:</label>
       <select name="monsterType">
         <% const monsters = ["Aqua", "Beast", "Beast-Warrior", "Cyberse", 
         "Dinosaur", "Divine-Beast", "Dragon", "Fairy", "Fiend", "Fish",
@@ -44,13 +44,13 @@
       <input type="text" name="def" value="<%= `${card.def}` %>">
       <br>
       <label>Effect:</label>
-      <input type="text" name="effect" value="<%= `${card.effect}` %>">
-      <input type="submit" value="Edit Card">
+      <input type="text" name="effect" value="<%= card.effect %>" maxlength="500">
+      <input type="submit" value="Edit Card" style="margin-top: 65px;">
     </form>
 <% } else if (card.type === "Spell") { %>
-    <form id="edit-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
+    <form id="new-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
         <label>Name:</label>
-        <input type="text" name="name" value="<%= `${card.name}` %>">
+        <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42">
         <br>
         <label>Type:</label>
         <select name="type" value="<%= `${card.type}` %>">
@@ -67,13 +67,13 @@
         </select>
         <br>
         <label>Effect:</label>
-        <input type="text" name="effect" value="<%= `${card.effect}` %>">
-        <input type="submit" value="Edit Card">
+        <input type="text" name="effect" value="<%= card.effect %>" maxlength="500" >
+        <input type="submit" value="Edit Card" style="margin-top: 65px;">
       </form>
 <% } else if (card.type === "Trap") { %>
-    <form id="edit-form" action="/cards/<%= `${card._id}` %>?_method=PUT" method="POST">
+    <form id="new-form" action="/cards/<%= `${card._id}` %>?_method=PUT" method="POST" >
         <label>Name:</label>
-        <input type="text" name="name" value="<%= `${card.name}` %>">
+        <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42">
         <br>
         <label>Type:</label>
         <select name="type" value="<%= `${card.type}` %>">
@@ -90,8 +90,8 @@
         </select>
         <br>
         <label>Effect:</label>
-        <input type="text" name="effect" value="<%= `${card.effect}` %>">
-        <input type="submit" value="Edit Card">
+        <textarea type="text" name="effect" value="<%= card.effect %>" maxlength="500"></textarea>
+        <input type="submit" value="Edit Card" style="margin-top: 65px;">
     </form>
 <% } %>
 <%- include('../partials/footer') %>

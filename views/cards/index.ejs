@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<table id="list">
+<!-- <table id="list">
     <thead>
       <tr>
         <th>Title</th>
@@ -33,6 +33,104 @@
         <% }); %>
         <% } %>
       </tbody>
-    </table>
-
+    </table> -->
+<div class="cardList">
+    <% cards.forEach(function(c) { %>
+        <section class="holder">
+            <% if (c.type === "Monster") { %>
+                <a href="/cards/<%= c._id %>">
+                    <div class="monsterCard">
+                        <div class="cardName"<% if (c.name.length > 30) { %>
+                            style="transform: scaleX(0.46); transform-origin: 0 0;" <% } else if (c.name.length > 24) { %>
+                                style="transform: scaleX(0.6); transform-origin: 0 0;" <% } else if (c.name.length > 20) { %>
+                                    style="transform: scaleX(0.8); transform-origin: 0 0;" <% } %>><%= c.name %></div>
+                        <div class="tempMonsterPic"><img src="https://i.imgur.com/JZ6Oqyb.jpeg"></div>            
+                        <div class="cardLevel">
+                        <% for (i=0; i < c.level; i++) { %>
+                            <img src="https://i.imgur.com/g3dcnGh.png" width="18" height="18" style="margin-left: -2.6px">
+                        <% } %>
+                        </div>
+                        <div class="cardAttribute">
+                        <% switch(c.attribute){  
+                             case "LIGHT": %>
+                            <img src="https://i.imgur.com/l8zRFTg.png" width="26" height="26">
+                            <% break; 
+                            case "DARK": %>
+                            <img src="https://i.imgur.com/8iko1bz.png" width="26" height="26">
+                            <% break; 
+                            case "FIRE": %>
+                            <img src="https://i.imgur.com/S7UAoDH.png" width="26" height="26">
+                            <% break; 
+                            case "WATER": %>
+                            <img src="https://i.imgur.com/Pn0I6Eu.png" width="26" height="26">
+                            <% break; 
+                            case "WIND": %>
+                            <img src="https://i.imgur.com/ZQkaeIG.png" width="26" height="26">
+                            <% break; 
+                            case "EARTH": %>
+                            <img src="https://i.imgur.com/bcyhnAu.png" width="26" height="26">
+                            <% break;
+                            case "DIVINE": %>
+                            <img src="https://i.imgur.com/U5be6p8.png" width="26" height="26">
+                            <% break;
+                        } %>
+                        </div>
+                        <div class="cardMonsterType">[<%= c.monsterType.toUpperCase() %>/EFFECT]</div>
+                        <div class="monsterEffect" <% if (c.effect.length > 350) { %>
+                            style="font-size: 7px" <% } else if (c.effect.length > 200) { %>
+                                style="font-size: 9px" <% } %>><%= c.effect %></div>
+                        <hr>
+                        <div class="cardAtkSpot">ATK/</div>
+                        <div class="cardAtk"><%= c.atk %></div>
+                        <div class="cardDefSpot">DEF/</div>
+                        <div class="cardDef"><%= c.def %></div>
+                    </div>
+                </a>
+                <br>
+                <div class="user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %> </div>
+                <div class="commentCount"> Comments: <%= c.comments.length %> </div>
+            <% } else if (c.type === "Spell") { %>
+                <a href="/cards/<%= c._id %>">
+                    <div class="spellCard">
+                        <div class="cardName"<% if (c.name.length > 30) { %>
+                            style="transform: scaleX(0.46); transform-origin: 0 0;" <% } else if (c.name.length > 24) { %>
+                                style="transform: scaleX(0.6); transform-origin: 0 0;" <% } else if (c.name.length > 20) { %>
+                                    style="transform: scaleX(0.8); transform-origin: 0 0;" <% } %>><%= c.name %></div>
+                        <div class="tempSpellPic"><img src="https://i.imgur.com/L1yz2mX.png"></div> 
+                        <div class="cardAttribute">
+                            <img src="https://i.imgur.com/rOqfiCg.png" width="26" height="26">
+                        </div>
+                        <div class="spellType">[<%= c.spellType %> Spell]</div>
+                        <div class="spellEffect" <% if (c.effect.length > 350) { %>
+                            style="font-size: 7px" <% } else if (c.effect.length > 200) { %>
+                                style="font-size: 9px" <% } %>><%= c.effect %></div>
+                    </div>
+                </a>
+                <br>
+                <div class="user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %> </div>
+                <div class="commentCount"> Comments: <%= c.comments.length %> </div>
+            <% } else if (c.type === "Trap") { %>
+                <a href="/cards/<%= c._id %>">
+                    <div class="trapCard">
+                        <div class="cardName"<% if (c.name.length > 30) { %>
+                            style="transform: scaleX(0.46); transform-origin: 0 0;" <% } else if (c.name.length > 24) { %>
+                                style="transform: scaleX(0.6); transform-origin: 0 0;" <% } else if (c.name.length > 20) { %>
+                                    style="transform: scaleX(0.8); transform-origin: 0 0;" <% } %>><%= c.name %></div>
+                        <div class="tempTrapPic"><img src="https://i.imgur.com/V4iCHuo.png"></div>
+                        <div class="cardAttribute">
+                            <img src="https://i.imgur.com/WvZdCji.png" width="26" height="26">
+                        </div>
+                        <div class="trapType">[<%= c.trapType %> Trap]</div>
+                        <div class="trapEffect" <% if (c.effect.length > 350) { %>
+                            style="font-size: 7px" <% } else if (c.effect.length > 200) { %>
+                                style="font-size: 9px" <% } %>><%= c.effect %></div>
+                    </div>
+                </a>
+                <br>
+                <div class="user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %> </div>
+                <div class="commentCount"> Comments: <%= c.comments.length %> </div>
+            <% } %>%>%>
+        </section>
+    <% }); %>
+</div>
 <%- include('../partials/footer') %>

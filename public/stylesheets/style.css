@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* font-family: 'PT Serif', serif; */
+
+
 * {
   box-sizing: border-box;
   font-family: Helvetica;
@@ -56,4 +61,270 @@ nav > a.active {
 
 .login img {
   height: 30px;
+}
+
+#new-form {
+  margin-left: 40%;
+  margin-top: 8%;
+  font-size: 32px;
+  justify-content: right;
+  position: relative;
+}
+
+#new-form > label {
+  position: absolute;
+  margin-left: -80px;
+  padding-bottom: 10px;
+}
+
+#new-form > input {
+  padding-bottom: 3px;
+  margin-top: 10px;
+  margin-left: 105px;
+  position: absolute;
+}
+
+#new-form > select {
+  padding-bottom: 3px;
+  margin-top: 10px;
+  margin-left: 105px;
+  position: absolute;
+}
+
+#new-form > textarea {
+  padding-bottom: 3px;
+  margin-top: 10px;
+  margin-left: 105px;
+  position: absolute;
+}
+
+
+
+.holder {
+  /* width: 300px;
+  height: 100px;
+  background-color: grey; */
+  display: inline-block;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.monsterCard {
+  font-family: 'PT Serif', serif;
+  color: black;
+  text-align: left;
+  background-image: url("https://i.imgur.com/GOK6mng.png");
+  background-size: 100%;
+  width: 300px;
+  height: 435px;
+  position: relative;
+}
+
+.spellCard {
+  font-family: 'PT Serif', serif;
+  color: black;
+  text-align: left;
+  background-image: url("https://i.imgur.com/NJ8268f.png");
+  background-size: 100%;
+  width: 300px;
+  height: 435px;
+  position: relative;
+}
+
+.trapCard {
+  font-family: 'PT Serif', serif;
+  color: black;
+  text-align: left;
+  background-image: url("https://i.imgur.com/X43Hd7W.png");
+  background-size: 100%;
+  width: 300px;
+  height: 435px;
+  position: relative;
+}
+
+.cardName {
+  font-family: 'PT Serif', serif;
+  color: black;
+  font-size: 24px;
+  margin-left: 25px;
+  padding-top: 17px;
+  text-wrap: nowrap;
+}
+
+.cardLevel {
+  text-align: right;
+  margin-right: 30px;
+  padding-top: 4px;
+}
+
+.cardAttribute {
+  position: absolute;
+  top: 21px;
+  right: 21px;
+}
+
+.cardMonsterType {
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  position: absolute;
+  bottom: 91px;
+  left: 25px;
+}
+
+.monsterEffect {
+  font-family: 'PT Serif', serif;
+  font-size: 12px;
+  color: black;
+  inline-size: 250px;
+  margin-left: 25px;
+  margin-top: 270px;
+  line-height: 1;
+}
+
+.spellEffect {
+  font-family: 'PT Serif', serif;
+  font-size: 12px;
+  color: black;
+  inline-size: 250px;
+  margin-left: 25px;
+  margin-top: 280px;
+  line-height: 1;
+}
+
+.trapEffect {
+  font-family: 'PT Serif', serif;
+  font-size: 12px;
+  color: black;
+  inline-size: 250px;
+  margin-left: 25px;
+  margin-top: 280px;
+  line-height: 1;
+}
+
+hr {
+  width: 83%;
+  background-color: black;
+  height: 1px;
+  border-width: 0;
+  left: 25px;
+  bottom: 32px;
+  position: absolute;
+}
+
+.cardAtkSpot {
+  position: absolute;
+  right: 126px;
+  bottom: 24px;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.cardDefSpot {
+  position: absolute;
+  right: 56px;
+  bottom: 24px;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.cardAtk {
+  position: absolute;
+  right: 94px;
+  bottom: 24px;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.cardDef {
+position: absolute;
+right: 24px;
+bottom: 24px;
+font-family: 'PT Serif', serif;
+font-weight: bold;
+font-size: 14px;
+color: black;
+}
+
+.spellType {
+  position: absolute;
+  top: 53px;
+  right: 30px;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.trapType {
+  position: absolute;
+  top: 53px;
+  right: 30px;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.tempMonsterPic {
+  position: absolute;
+  top: -18.4%;
+  right: -40.9%;
+  transform: scale(0.415);
+}
+
+.tempSpellPic {
+  position: absolute;
+  top: -80%;
+  right: -130%;
+  transform: scale(0.21);
+}
+
+.tempTrapPic {
+  position: absolute;
+  top: -18.35%;
+  right: -40.8%;
+  transform: scale(0.414);
+}
+
+.user {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.user img {
+  border-radius: 50%;
+  height: 40px;
+}
+
+.commentCount {
+  display: flex;
+  justify-content: right;
+  margin-top: -29px;
+  margin-bottom: 30px;
+}
+
+.typeChoice {
+  font-size: 56px;
+  justify-content: center;
+  color: white;
+  background-color: rgb(80, 80, 80);
+  margin: 30px 550px 0px 550px;
+  border-radius: 10%;
+  width: 300px;
+  display: flex;
+
 }
