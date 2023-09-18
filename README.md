@@ -30,6 +30,6 @@ I used for this project were pretty rudimentary. I had to make some concessions 
 
 ## Early Wireframes ##
 If you're curious to see what the early wireframe for this project was like, check it out!
-![Card Feed Early Wireframe](img/project1%20wireframe.PNG)
-![Creating a Card Early Wireframe](img/project1%20wireframe.PNG)
-![Viewing a Card Early Wireframe](img/project1%20wireframe.PNG)
+![Card Feed Early Wireframe](img/proj2home.PNG)
+![Creating a Card Early Wireframe](img/proj2new.PNG)
+![Viewing a Card Early Wireframe](img/proj2show.PNG)
