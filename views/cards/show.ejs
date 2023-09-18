@@ -96,7 +96,7 @@
 <form id="add-comment-form" method="POST"
   action="/cards/<%= card._id %>/comments" style="margin-left: 50px;">
   <label style="font-size: 26px; color: white">Leave a Comment:</label>
-  <textarea name="content"></textarea>
+  <textarea name="content" placeholder="Enter a comment..." required></textarea>
   <label style="color: white; font-size: 18px;">Rating:</label>
   <select name="rating">
     <option value="1">1</option>
@@ -125,7 +125,7 @@
           <tr class="commentDisplay">
             <td class="user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
             <td><%= c.createdAt.toLocaleDateString() %></td>
-            <td style="background-color: #020049; padding-left: 5px; padding-top: 5px; padding-bottom: 5px; border-radius: 8px;"><%= c.content %></td>
+            <td style="background-color: #020049; padding-left: 15px; padding-top: 5px; padding-bottom: 5px; border-radius: 8px;"><%= c.content %></td>
             <td style="padding-left: 20px;"><%= c.rating %></td>
             <td>
               <% if (user?._id.equals(c.user)) { %>

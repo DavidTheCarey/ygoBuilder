@@ -4,7 +4,7 @@
 <% if (card.type === "Monster") { %>
     <form id="new-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
       <label>Name:</label>
-      <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42">
+      <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42" required>
       <br>
       <label>Type:</label>
       <select name="type" value="<%= `${card.type}` %>">
@@ -12,7 +12,7 @@
       </select>
       <br>
       <label>Level:</label>
-      <input type="text" name="level" value="<%= `${card.level}` %>">
+      <input type="text" name="level" value="<%= `${card.level}` %>" pattern="[1-9]|1[0-2]" title="Number between 1-12" required>
       <br>
       <label>Attribute:</label>
       <select name="attribute">
@@ -38,19 +38,19 @@
       </select>
       <br>
       <label>Attack:</label>
-      <input type="text" name="atk" value="<%= `${card.atk}` %>">
+      <input type="text" name="atk" value="<%= `${card.atk}` %>" pattern="[0-9]{1,4}" title="Number between 0-9999" required>
       <br>
       <label>Defense:</label>
-      <input type="text" name="def" value="<%= `${card.def}` %>">
+      <input type="text" name="def" value="<%= `${card.def}` %>" pattern="[0-9]{1,4}" title="Number between 0-9999" required>
       <br>
       <label>Effect:</label>
-      <input type="text" name="effect" value="<%= card.effect %>" maxlength="500">
-      <input type="submit" value="Edit Card" style="margin-top: 65px;">
+      <textarea type="text" name="effect" maxlength="500" rows="8" cols="45"> <%= `${card.effect}` %> </textarea>
+      <input type="submit" class="enterInfo" value="Edit Card">
     </form>
 <% } else if (card.type === "Spell") { %>
     <form id="new-form" action="/cards/<%= `${card._id}` %>?_method=PUT"  method="POST">
         <label>Name:</label>
-        <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42">
+        <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42" required>
         <br>
         <label>Type:</label>
         <select name="type" value="<%= `${card.type}` %>">
@@ -67,13 +67,13 @@
         </select>
         <br>
         <label>Effect:</label>
-        <input type="text" name="effect" value="<%= card.effect %>" maxlength="500" >
-        <input type="submit" value="Edit Card" style="margin-top: 65px;">
+        <textarea type="text" name="effect" maxlength="500" rows="8" cols="45"> <%= `${card.effect}` %> </textarea>
+        <input type="submit" class="enterInfo" value="Edit Card">
       </form>
 <% } else if (card.type === "Trap") { %>
     <form id="new-form" action="/cards/<%= `${card._id}` %>?_method=PUT" method="POST" >
         <label>Name:</label>
-        <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42">
+        <input type="text" name="name" value="<%= `${card.name}` %>" maxlength="42" required>
         <br>
         <label>Type:</label>
         <select name="type" value="<%= `${card.type}` %>">
@@ -90,8 +90,8 @@
         </select>
         <br>
         <label>Effect:</label>
-        <textarea type="text" name="effect" value="<%= card.effect %>" maxlength="500"></textarea>
-        <input type="submit" value="Edit Card" style="margin-top: 65px;">
+        <textarea type="text" name="effect" maxlength="500" rows="8" cols="45"> <%= `${card.effect}` %> </textarea>
+        <input type="submit" class="enterInfo" value="Edit Card">
     </form>
 <% } %>
 <%- include('../partials/footer') %>

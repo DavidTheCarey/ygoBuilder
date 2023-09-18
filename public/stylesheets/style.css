@@ -392,3 +392,14 @@ color: black;
 tr > th {
   color: white;
 }
+
+.enterInfo {
+  position: absolute;
+  bottom: -200px;
+  font-size: 36px; 
+  padding: 5px 15px 5px 15px;
+  color: white;
+  background-color: #020049;
+  border-width: 0px;
+  border-radius: 8px;
+}

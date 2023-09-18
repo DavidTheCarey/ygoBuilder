@@ -2,7 +2,7 @@
 
 <form id="new-form" action="/cards" method="POST">
   <label>Name:</label>
-  <input type="text" name="name" maxlength="42">
+  <input type="text" name="name" maxlength="42" required>
   <br>
   <label>Type:</label>
   <select name="type">
@@ -10,7 +10,7 @@
   </select>
   <br>
   <label>Level:</label>
-  <input type="text" name="level">
+  <input type="text" name="level" pattern="[1-9]|1[0-2]" title="Number between 1-12" required>
   <br>
   <label>Attribute:</label>
   <select name="attribute">
@@ -52,14 +52,14 @@
   </select>
   <br>
   <label>Attack:</label>
-  <input type="text" name="atk">
+  <input type="text" name="atk" pattern="[0-9]{1,4}" title="Number between 0-9999" required>
   <br>
   <label>Defense:</label>
-  <input type="text" name="def">
+  <input type="text" name="def" pattern="[0-9]{1,4}" title="Number between 0-9999" required>
   <br>
   <label>Effect:</label>
-  <textarea type="text" name="effect" maxlength="500"></textarea>
-  <input type="submit" value="Create Card" style="margin-top: 65px;">
+  <textarea type="text" name="effect" maxlength="500" rows="8" cols="45"></textarea>
+  <input type="submit" class="enterInfo" value="Create Card">
 </form>
 
 <%- include('../../partials/footer') %>

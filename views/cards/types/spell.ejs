@@ -2,7 +2,7 @@
 
 <form id="new-form" action="/cards" method="POST">
   <label>Name:</label>
-  <input type="text" name="name" maxlength="42">
+  <input type="text" name="name" maxlength="42" required>
   <br>
   <label>Type:</label>
   <select name="type">
@@ -19,8 +19,8 @@
   </select>
   <br>
   <label>Effect:</label>
-  <textarea type="text" name="effect" maxlength="500"></textarea>
-  <input type="submit" value="Create Card"style="margin-top: 65px;">
+  <textarea type="text" name="effect" maxlength="500" rows="8" cols="45"></textarea>
+  <input type="submit" class="enterInfo" value="Create Card">
 </form>
 
 <%- include('../../partials/footer') %>
