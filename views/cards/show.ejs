@@ -82,18 +82,22 @@
 </section>
 
 <br><br>
-<a href="/cards/<%= card.id %>/edit">Edit Card</a>
-<form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Post</button>
-  </form>
+<% if (user?._id) { %>
+<div id="postOptions">
+<button class="editPost"><a href="/cards/<%= card.id %>/edit">Edit Card</a></button>
+    <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+        <button class="deletePost"type="submit">Delete Post</button>
+    </form>
+</div>
+<% } %>
 
-
-<br><br><h2>Comments</h2>
+<br><br><h2 style="color: white; margin-top: 100px; margin-left: 50px;">Comment Section</h2>
+<% if (user?._id) { %>
 <form id="add-comment-form" method="POST"
-  action="/cards/<%= card._id %>/comments">
-  <label>Comment:</label>
+  action="/cards/<%= card._id %>/comments" style="margin-left: 50px;">
+  <label style="font-size: 26px; color: white">Leave a Comment:</label>
   <textarea name="content"></textarea>
-  <label>Rating:</label>
+  <label style="color: white; font-size: 18px;">Rating:</label>
   <select name="rating">
     <option value="1">1</option>
     <option value="2">2</option>
@@ -101,11 +105,12 @@
     <option value="4">4</option>
     <option value="5" selected>5</option>
   </select>
-  <input type="submit" value="Add Review">
+  <input type="submit" value="Add Comment">
 </form>
+<% } %>
 
 <% if (card.comments.length) { %>
-    <table>
+    <table style="margin-bottom: 100px; margin-left: 50px;">
       <thead>
         <tr>
           <th>User</th>
@@ -117,15 +122,15 @@
       </thead>
       <tbody>
         <% card.comments.forEach(function(c) { %>
-          <tr>
+          <tr class="commentDisplay">
             <td class="user"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer" ><%= c.userName %></td>
             <td><%= c.createdAt.toLocaleDateString() %></td>
-            <td><%= c.content %></td>
-            <td><%= c.rating %></td>
+            <td style="background-color: #020049; padding-left: 5px; padding-top: 5px; padding-bottom: 5px; border-radius: 8px;"><%= c.content %></td>
+            <td style="padding-left: 20px;"><%= c.rating %></td>
             <td>
               <% if (user?._id.equals(c.user)) { %>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                  <button type="submit">X</button>
+                  <button type="submit" style="color: red">X</button>
                 </form>
               <% } %>
             </td>
@@ -137,7 +142,7 @@
       </tbody>
     </table>
   <% } else { %>
-    <h5>No Comments Yet</h5>
+    <h5 style="margin-bottom: 100px; margin-left: 50px;">No Comments Yet</h5>
   <% } %>
 
 <%- include('../partials/footer') %>

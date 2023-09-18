@@ -41,7 +41,11 @@ function newTrap (req, res){
 
 async function show (req, res){
     const card = await Card.findById(req.params.id);
-    res.render("cards/show", {title: `${card.name}`, card})
+    res.render("cards/show", {
+        title: `${card.name}`, 
+        card,
+        creator: card.user
+    })
 }
 async function edit (req, res){
     const card = await Card.findById(req.params.id);

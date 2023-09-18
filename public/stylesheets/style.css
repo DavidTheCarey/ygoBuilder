@@ -10,6 +10,7 @@
 }
 
 body {
+  background-color: rgb(1, 27, 108);
   margin: 0;
   height: 100vh;
   display: grid;
@@ -21,11 +22,12 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #020049;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
+
 }
 
 nav > img {
@@ -39,6 +41,7 @@ nav > a {
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
+  color: white;
 }
 
 nav > a:hover:not(.active) {
@@ -53,6 +56,7 @@ nav > a.active {
 
 
 .login {
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,6 +79,7 @@ nav > a.active {
   position: absolute;
   margin-left: -80px;
   padding-bottom: 10px;
+  color: white;
 }
 
 #new-form > input {
@@ -303,6 +308,7 @@ color: black;
   display: flex;
   justify-content: left;
   align-items: center;
+  color: white;
 }
 
 .user img {
@@ -315,16 +321,74 @@ color: black;
   justify-content: right;
   margin-top: -29px;
   margin-bottom: 30px;
+  color: white;
 }
 
 .typeChoice {
   font-size: 56px;
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
   justify-content: center;
   color: white;
   background-color: rgb(80, 80, 80);
   margin: 30px 550px 0px 550px;
-  border-radius: 10%;
+  border-radius: 15px;
   width: 300px;
+  padding-bottom: 10px;
   display: flex;
 
+}
+
+#add-comment-form {
+  margin-bottom: 50px;
+}
+
+#add-comment-form > textarea {
+  width: 600px;
+  padding-top: 5px;
+  font-size: 18px;
+}
+
+
+.commentDisplay > td {
+  padding-right: 30px;
+  color: white;
+}
+
+#postOptions {
+  background-color: #020049;
+  position: absolute;
+  top: 75px;
+  right: 10px;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+}
+
+.editPost {
+  font-weight: bold;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 36px;
+  margin-bottom: 15px;
+  background-color: rgb(109, 109, 109);
+}
+
+.editPost > a {
+  color: white;
+  font-family: 'PT Serif', serif;
+}
+
+.deletePost {
+  font-family: 'PT Serif', serif;
+  font-weight: bold;
+  border-width: 0;
+  border-radius: 8px;
+  font-size: 24px;
+  margin-bottom: 5px;
+  background-color: red;
+  color: white;
+}
+
+tr > th {
+  color: white;
 }
