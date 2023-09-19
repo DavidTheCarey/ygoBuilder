@@ -82,7 +82,7 @@
 </section>
 
 <br><br>
-<% if (user?._id) { %>
+<% if (user?._id.equals(card.user)) { %>
 <div id="postOptions">
 <button class="editPost"><a href="/cards/<%= card.id %>/edit">Edit Card</a></button>
     <form action="/cards/<%= card._id %>?_method=DELETE" method="POST">
