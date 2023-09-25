@@ -21,7 +21,7 @@ async function index(req, res) {
 function newCard (req, res){
     res.render('cards/new', {title: 'Pick a Type'});
 }
-
+// extra lines here can be removed
 
 
 function newMonster (req, res){
@@ -40,6 +40,9 @@ function newTrap (req, res){
 }
 
 async function show (req, res){
+    // .findById can give you back an empty query object if it doesn't find anything. This can cause some errors in some edge cases.
+    // Best practice is to check to see if your `card` variable is a document and if it is then render if it's not render a 404.
+    // Here is some custom error that I used to teach in the express lessons https://git.generalassemb.ly/ga-wdi-boston/express-api-template/blob/main/lib/custom_errors.js
     const card = await Card.findById(req.params.id);
     res.render("cards/show", {
         title: `${card.name}`, 
@@ -49,6 +52,7 @@ async function show (req, res){
 }
 async function edit (req, res){
     const card = await Card.findById(req.params.id);
+    // handle for 404
     res.render("cards/edit", {title: `Edit ${card.name}`, card})
 }
 
@@ -58,8 +62,10 @@ async function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     try {
+        // update comment to reflect data you are using. It's no longer a movie
       // Update this line because now we need the _id of the new movie
       const card = await Card.create(req.body);
+      // same as above
       // Redirect to the new movie's show functionality 
       res.redirect(`/cards/`);
     } catch (err) {
@@ -72,6 +78,8 @@ async function create(req, res) {
 async function update (req, res){
    const card = await Card.findById(req.params.id);
     try {
+        // the below commented out code is missing an `=` <if (card.user !== req.user._id ) throw new Error('Unauthorized')> if you commented it out because it was
+        // not working that is why. Also a good thing to have in there. 
         //  if (card.user != req.user._id ) throw new Error('Unauthorized')
         await card.updateOne(req.body);
         res.redirect(`${card._id}`)
@@ -85,6 +93,7 @@ async function update (req, res){
 async function deleteCard (req,res){
     const card = await Card.findById(req.params.id);
     try {
+        // should check for user owned and throw error if the user who owns this is not the one to remove it.
         await card.deleteOne(req.body);
         res.redirect("./"); 
     } catch (err){

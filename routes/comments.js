@@ -3,6 +3,7 @@ const router = express.Router();
 const commentsCtrl = require('../controllers/comments');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
+// Update comments
 // POST /movies/:id/reviews (create review for a movie)
 router.post('/cards/:id/comments', ensureLoggedIn, commentsCtrl.create);
 // DELETE /reviews
