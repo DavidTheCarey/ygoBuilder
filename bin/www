@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+// Change everything on over to const that is var. I know it came with the template but it's always good to update old code.
 var app = require('../server');
 var debug = require('debug')('ygobuilder:server');
 var http = require('http');
